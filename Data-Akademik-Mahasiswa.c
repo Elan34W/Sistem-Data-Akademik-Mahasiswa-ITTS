@@ -24,7 +24,6 @@ void input(Mahasiswa x[])
         printf("\nMasukkan Kelas Mahasiswa : ");
         fflush(stdin); gets(x->kelas);
         printf("\nMasukkan kelamin Mahasiswa (L / P) : ");
-        fflush(stdin); gets(x->kelamin);
         printf("\nMasukkan agama Mahasiswa : ");
         fflush(stdin); gets(x->agama);
         printf("\nMasukkan status Mahasiswa (Aktif, Non-Aktif , Lulus) : ");
@@ -34,6 +33,7 @@ void input(Mahasiswa x[])
 
 // FUNGSI UNTUK MENAMPILAKAN DATA MAHASISWA //
 void output(Mahasiswa x[],int y){
+    printf("DATA - DATA MAHASISWA\n");
     for (int i = 0; i < y; i++)
     {
         printf("\nNama Mahasiswa : %s ", x[i].nama);
@@ -161,7 +161,7 @@ void saveA(Mahasiswa x[]){
     printf("File tidak tersedia!\n");
     return;
   } 
-    fprintf(file, "%s_ %d IF-%s %s %s %s \n", x->nama, x->nim, x->kelas, x->kelamin, x->agama, x->status);
+    fprintf(file, "%s_ %d IF-%s %s  %s%s \n", x->nama, x->nim, x->kelas, x->kelamin, x->agama, x->status);
     fclose(file);
 }
 
@@ -198,8 +198,7 @@ void load(Mahasiswa x[], int y[]) {
 int main()
 {
     Mahasiswa data[100];
-    int pilih,banyak = 1, opsisort;
-    FILE *file;
+    int pilih,banyak,opsisort;
 
 do {
     printf("\n\tSistem Data Akademik Mahasiswa Prodi IF");
@@ -223,7 +222,6 @@ do {
         case 2:
             system("cls");
             load(data,&banyak);
-            printf("DATA - DATA MAHASISWA\n");
             output(data,banyak);
             break;
         case 3:
