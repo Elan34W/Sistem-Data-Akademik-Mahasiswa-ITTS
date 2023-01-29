@@ -24,6 +24,7 @@ void input(Mahasiswa x[])
         printf("\nMasukkan Kelas Mahasiswa : ");
         fflush(stdin); gets(x->kelas);
         printf("\nMasukkan kelamin Mahasiswa (L / P) : ");
+        fflush(stdin); gets(x->kelamin);
         printf("\nMasukkan agama Mahasiswa : ");
         fflush(stdin); gets(x->agama);
         printf("\nMasukkan status Mahasiswa (Aktif, Non-Aktif , Lulus) : ");
@@ -161,7 +162,7 @@ void saveA(Mahasiswa x[]){
     printf("File tidak tersedia!\n");
     return;
   } 
-    fprintf(file, "%s_ %d IF-%s %s  %s%s \n", x->nama, x->nim, x->kelas, x->kelamin, x->agama, x->status);
+    fprintf(file, "%s_ %d IF-%s %s %s %s \n", x->nama, x->nim, x->kelas, x->kelamin, x->agama, x->status);
     fclose(file);
 }
 
